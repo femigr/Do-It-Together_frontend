@@ -14,17 +14,17 @@ jobs:
       - name: Cache node modules
         uses: actions/cache@v1
         with:
-          path: node_modules
+          path: my-app/node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.OS }}-build-
             ${{ runner.OS }}-
 
       - name: Install
-        run: npm install
+        run: cd my-app && npm install
 
       - name: Build
-        run: npm run build
+        run: cd my-app && npm run build
 
       - name: Deploy
         env:
@@ -34,4 +34,4 @@ jobs:
           aws s3 cp \
             --recursive \
             --region eu-central-1 \
-            dist/my-app s3://doittogether
+            my-app/dist/my-app s3://doittogether
