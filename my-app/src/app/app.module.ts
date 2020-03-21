@@ -12,7 +12,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {DateSelectorComponent} from './date-selector/date-selector.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     DateSelectorComponent
   ],
   imports: [
+    MatSelectModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
     MatBottomSheetModule,
@@ -30,7 +34,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
