@@ -1,0 +1,20 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Titel</mat-label>
+    <input matInput required="required"
+           placeholder="Ex. pat@example.com">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Schreib was nettes:</mat-label>
+    <textarea matInput
+           placeholder="Hey, hast du Lust, was zusammen zu machen?"></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Wann?</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+</form>
