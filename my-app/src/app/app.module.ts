@@ -13,12 +13,20 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {DateSelectorComponent} from './date-selector/date-selector.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import { ResponsiveSideMenuComponent } from './responsive-side-menu/responsive-side-menu.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { RouterModule } from '@angular/router';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateActivityComponent,
-    DateSelectorComponent
+    DateSelectorComponent,
+    ResponsiveSideMenuComponent,
+    HomeComponent
   ],
   imports: [
     MatDatepickerModule,
@@ -26,10 +34,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatBottomSheetModule,
     MatButtonModule,
     MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
