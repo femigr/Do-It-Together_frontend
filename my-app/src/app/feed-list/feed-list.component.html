@@ -1,0 +1,5 @@
+<cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="viewport">
+    <div *cdkVirtualFor="let feed of feedSummaryList" class="feed-container">
+        <app-feed-list-entry [feedSummary]='feed'></app-feed-list-entry>
+    </div>
+</cdk-virtual-scroll-viewport>
