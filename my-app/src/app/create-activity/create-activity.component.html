@@ -1,6 +1,6 @@
-<p>We can create activities here</p>
-<ul>
-  <li *ngFor="let activity of activities">
-    <span>{{activity}}</span>
-  </li>
-</ul>
+<h3>We can start activities here</h3>
+<mat-list>
+  <mat-list-item *ngFor="let activity of activities">
+    <button mat-flat-button color="primary">{{activity}}</button>
+  </mat-list-item>
+</mat-list>
