@@ -1,26 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {MatBottomSheet} from '@angular/material/bottom-sheet';
-import {DateSelectorComponent} from 'src/app/date-selector/date-selector.component'
+import {Component} from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
+
 
 @Component({
-  selector: 'app-create-activity',
-  templateUrl: './create-activity.component.html',
-  styleUrls: ['./create-activity.component.scss']
+  selector: 'create-activity-component',
+  templateUrl: 'create-activity.component.html',
+  styleUrls: ['create-activity.component.scss']
 })
-export class CreateActivityComponent implements OnInit {
+export class CreateActivityComponent {
+  constructor() {
 
-  activities = ['Sport', 'Lesen'];
-
-  constructor(private _bottomSheet: MatBottomSheet) {}
-
-  ngOnInit(): void {
   }
 
-  openBottomSheet(): void {
-    this._bottomSheet.open(DateSelectorComponent);
+  title = "";
+  description = "";
+  date = new FormControl(new Date());
+
+
+
+  openLink(event: MouseEvent): void {
+    event.preventDefault();
   }
+
+  onSubmit(): void{
+    try{//TODO: API-Call
+      console.log(this.title);
+      console.log(this.description);
+      console.log(this.date);
+    }
+    catch(err){
+      //Alert oder sowas
+    }
+  }
+
+
 }
-
-
-
-

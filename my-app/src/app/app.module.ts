@@ -24,6 +24,7 @@ import {MatCardModule} from '@angular/material/card';
 
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     FeedListEntryComponent
   ],
   imports: [
+    FormsModule,
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule,
