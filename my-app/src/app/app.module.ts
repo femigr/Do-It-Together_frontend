@@ -21,7 +21,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -38,6 +38,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FeedListEntryComponent
   ],
   imports: [
+    MatGridListModule,
     FormsModule,
     MatSelectModule,
     MatNativeDateModule,
