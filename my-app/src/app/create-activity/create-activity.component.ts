@@ -29,9 +29,6 @@ export class CreateActivityComponent {
   };
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
-
-
-  constructor(private formBuilder: FormBuilder) {
     this.currentstep = 0;
     // Init form and link to model
     this.activityForm = this.formBuilder.group({
