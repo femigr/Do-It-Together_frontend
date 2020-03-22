@@ -1,0 +1,24 @@
+<mat-card style = "padding: 0;
+  width: 270px;
+  border: 4px solid var(--event-color);
+  border-radius: 16px;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;">
+    <div class="preview">
+      <div height = "140" width = "270" style="overflow: hidden; position: relative;">
+        <img src="/assets/images/example3.jpg" width="270"> <!--vll noch: style="border-bottom: 4px solid var(--event-color);"-->
+      </div>
+      <br *ngIf="activityForm.value.name==''">
+      <div *ngIf="activityForm.value.name!=''" style="padding: 16px;">
+        <h2 class="field">{{activityForm.value.name}}</h2>
+        <h3 class="field">{{activityForm.value.username}}</h3><br>
+        <p class="field">{{activityForm.value.description}}</p><br>
+        <p align="right"><a href="{{activityForm.value.link}}">{{activityForm.value.link}}</a></p>
+      </div>
+
+      <div *ngIf="activityForm.value.name!=''" style="padding: 16px;">
+        <button class="submitbutton" mat-raised-button >dito!</button>
+      </div>
+    </div>
+  </mat-card>

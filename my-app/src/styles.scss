@@ -1,14 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --main-color: #444444;
+  --event-color: #39FF66;
+  --aktivitaet-color: #4E4AFF;
+  --herausforderung-color: #FF6D00;
+}
+
+
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: 'Work Sans', sans-serif !important;
 }
 
 .center {
   display: flex;
   justify-content: center;
+}
+
+.button{
+  border: 2px solid var(--event-color) !important;
+  border-radius: 16px !important;
+  opacity: 1;
+  font: Bold 16px/19px Work Sans;
+  letter-spacing: 0;
+  color: var(--event-color);
+  opacity: 1;
+}
+
+.submitbutton{
+  border: 2px solid var(--event-color) !important;
+  border-radius: 16px !important;
+  background-color: var(--event-color) !important;
+  font: Bold 16px/19px Work Sans;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 .content {
@@ -18,3 +46,31 @@ body {
 mat-card {
   max-width: 650px;
 }
+
+h2{
+  font: Bold 24px/28px Work Sans !important;
+  letter-spacing: 0;
+  color: var(--main-color);
+  opacity: 1;
+}
+h3{
+  font: 16px/18px Work Sans !important;
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent !important;
+}
+
+.label{
+  font: Bold 16px/19px Work Sans;
+  letter-spacing: 0;
+  color: var(--main-color);
+}
+
+a{
+  color: var(--aktivitaet-color);
+  text-decoration: none;
+}
+
