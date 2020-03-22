@@ -14,7 +14,22 @@ export class FeedListEntryComponent implements OnInit {
 
   constructor() { }
 
+  isMobile = false;
+  getIsMobile(): boolean {
+    const w = document.documentElement.clientWidth;
+    const breakpoint = 992;
+    if (w < breakpoint) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   ngOnInit(): void {
+    this.isMobile = this.getIsMobile();
+    window.onresize = () => {
+      this.isMobile = this.getIsMobile();
+    };
   }
 
 }
