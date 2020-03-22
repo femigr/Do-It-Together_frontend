@@ -1,5 +1,5 @@
 .card {
-  height: 350px;
+  min-height: 350px;
   overflow: hidden;
   padding: 0;
   margin: 16px;
@@ -14,7 +14,7 @@
 }
 
 .preview-image{
-  height: 220px;
+  max-height: 220px;
   overflow: hidden;
   position: relative;
 }
