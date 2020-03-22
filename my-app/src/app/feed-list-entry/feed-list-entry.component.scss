@@ -1,7 +1,6 @@
 .card {
   height: 350px;
   overflow: hidden;
-  max-width: 400px;
   padding: 0;
   margin: 16px;
   border: 4px solid var(--event-color);
@@ -26,5 +25,6 @@
 
 .text{
   font: 16px/18px Work Sans;
+  display: flex;
 
 }
