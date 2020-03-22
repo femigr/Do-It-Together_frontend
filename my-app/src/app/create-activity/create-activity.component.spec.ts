@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateActivityComponent } from './create-activity.component';
 
-describe('DateSelectorComponent', () => {
+describe('CreateActivityComponent', () => {
   let component: CreateActivityComponent;
   let fixture: ComponentFixture<CreateActivityComponent>;
 
