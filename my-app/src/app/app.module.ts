@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateActivityComponent } from './create-activity/create-activity.component';
-import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { ResponsiveSideMenuComponent } from './responsive-side-menu/responsive-side-menu.component';
 import { HomeComponent } from './home/home.component';
 import { FeedListComponent } from './feed-list/feed-list.component';
@@ -33,8 +32,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     CreateActivityComponent,
-    DateSelectorComponent,
-    DateSelectorComponent,
     ResponsiveSideMenuComponent,
     HomeComponent,
     FeedListComponent,
