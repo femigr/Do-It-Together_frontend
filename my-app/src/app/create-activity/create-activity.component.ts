@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Activity } from './../model/activity';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-activity-component',
@@ -28,7 +29,7 @@ export class CreateActivityComponent {
     })
   };
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.currentstep = 0;
     // Init form and link to model
     this.activityForm = this.formBuilder.group({
@@ -67,8 +68,13 @@ export class CreateActivityComponent {
     console.log(this.activity);
 
     // Call API endpoint here
-    var out = JSON.stringify({"action": this.activity});
-    this.http.post(this.putActionUrl, out, this.httpOptions);
+    var out = JSON.stringify( {'action': this.activity} );
+    this.http.post(this.putActionUrl, out, this.httpOptions).subscribe(response => {
+      this.router.navigate(['home']); // Success path
+    },
+    error => console.log(
+      'Error occurred when creating activity with name: ' + this.activity.name +
+      'Error: ' + error)); // Error path);
   }
 
   back(): void{
