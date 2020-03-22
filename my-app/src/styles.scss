@@ -10,3 +10,11 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.content {
+  padding: 25px 30px;
+}
+
+mat-card {
+  max-width: 650px;
+}

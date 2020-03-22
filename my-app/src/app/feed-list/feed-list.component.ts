@@ -23,9 +23,9 @@ export class FeedListComponent implements OnInit {
   @Input() feedSummaryList = [];
 
 
-  constructor() { 
+  constructor() {
 
-    for (let i = 0; i < 100; ++i) {
+    for (let i = 0; i < 20; ++i) {
       this.feedSummaryList['push'](this.feed);
     }
   }
