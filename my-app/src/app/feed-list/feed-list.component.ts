@@ -1,36 +1,31 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { FeedSummary } from 'src/app/module/feed-summary';
+import { HttpClient } from '@angular/common/http';
+import { Activity } from '../model/activity';
 
 @Component({
   selector: 'app-feed-list',
   templateUrl: './feed-list.component.html',
-  styleUrls: ['./feed-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./feed-list.component.scss']
 
 })
 export class FeedListComponent implements OnInit {
 
-  // Mocked data
-  feed: FeedSummary = {
-    id: '1',
-    title: 'Yoga Class',
-    description: 'Section 1',
-    creator: 'John doe',
-    avatarImageUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-    imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-  };
+  actionsUrl = 'https://lvve8kdo9b.execute-api.eu-central-1.amazonaws.com/prod/actions';
+  actions: Activity[] = [];
 
-  @Input() feedSummaryList = [];
-
-
-  constructor() {
-
-    for (let i = 0; i < 20; ++i) {
-      this.feedSummaryList['push'](this.feed);
-    }
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+
+    this.http.get(this.actionsUrl).subscribe(data => {
+      let items: any;
+      items = data['data']['Items'];
+      for (const item of items) {
+        this.actions.push(item.Action);
+      }
+
+    });
   }
 
 
