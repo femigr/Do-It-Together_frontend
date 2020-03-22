@@ -10,21 +10,20 @@ export class ResponsiveSideMenuComponent implements OnDestroy  {
   mobileQuery: MediaQueryList;
 
   navigationItems = [
-    { label: 'Feed', routerLink: 'home'},
-    { label: 'Aktivität erstellen', routerLink: 'create-activity'}
+    { label: 'Feed', routerLink: 'home', matIcon: 'local_activity'},
+    { label: 'Aktivität', routerLink: 'create-activity', matIcon: 'add'}
   ];
 
-  private _mobileQueryListener: () => void;
+  private mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQueryListener = () => changeDetectorRef.detectChanges();
+    this.mobileQuery.addListener(this.mobileQueryListener);
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
   }
 
-  shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 }

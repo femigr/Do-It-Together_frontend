@@ -1,20 +1,32 @@
-<form class="example-form">
+<h2>Formular</h2>
+<form (ngSubmit)="onSubmit()">
   <mat-form-field class="example-full-width">
     <mat-label>Titel</mat-label>
-    <input matInput required="required"
-           placeholder="Ex. pat@example.com">
+    <input matInput required="required" placeholder="Ex. pat@example.com">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Schreib was nettes:</mat-label>
-    <textarea matInput
-           placeholder="Hey, hast du Lust, was zusammen zu machen?"></textarea>
+    <textarea matInput placeholder="Hey, hast du Lust, was zusammen zu machen?"></textarea>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <mat-label>Wann?</mat-label>
-    <input matInput [matDatepicker]="picker">
+    <input matInput [value]="date.value" [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+  <br>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select</mat-label>
+    <mat-select><!-- Vielleicht besser als liste mit + button? -->
+      <mat-option value="option">Freunde</mat-option>
+      <mat-option value="option">Noch Mehr Freunde</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+
+  <button type="submit" mat-flat-button>Fertig</button>
 
 </form>

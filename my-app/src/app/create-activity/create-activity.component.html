@@ -1,6 +1,51 @@
-<h3>We can start activities here</h3>
-<mat-list>
-  <mat-list-item *ngFor="let activity of activities">
-    <button mat-flat-button (click)="openBottomSheet()" color="primary">{{activity}}</button>
-  </mat-list-item>
-</mat-list>
+<div>
+
+  <mat-card>
+
+    <div>
+      <form [formGroup]="activityForm">
+
+        <div class="center">
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Titel</mat-label>
+            <input formControlName="name" matInput>
+          </mat-form-field>
+        </div>
+
+        <div class="center">
+          <mat-form-field class="form-field">
+            <mat-label>Datum</mat-label>
+            <input formControlName="date" [matDatepicker]="picker" matInput>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="center">
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Art der virtuellen Aktivität</mat-label>
+            <mat-select formControlName="type">
+              <mat-option *ngFor="let type of activityTypes" [value]="type">
+                {{type}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+
+        <div class="center">
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Beschreibung</mat-label>
+            <textarea formControlName="description" matInput></textarea>
+          </mat-form-field>
+        </div>
+
+        <button mat-raised-button color="primary" (click)="createActivity()">Erstellen</button>
+
+      </form>
+    </div>
+
+  </mat-card>
+</div>
+
+

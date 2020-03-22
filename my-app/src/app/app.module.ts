@@ -22,6 +22,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 
+import {MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule} from '@angular/material/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +38,9 @@ import {MatCardModule} from '@angular/material/card';
     FeedListEntryComponent
   ],
   imports: [
+    FormsModule,
+    MatSelectModule,
+    MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
     MatBottomSheetModule,
@@ -47,10 +53,12 @@ import {MatCardModule} from '@angular/material/card';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    ScrollingModule
+    ScrollingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
