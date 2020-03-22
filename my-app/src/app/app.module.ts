@@ -26,6 +26,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActivityPreviewComponent } from './activity-preview/activity-preview.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatDatepickerModule,
     MatInputModule,
+    MatSnackBarModule,
     MatBottomSheetModule,
     MatButtonModule,
     MatListModule,

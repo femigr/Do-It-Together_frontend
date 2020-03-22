@@ -11,7 +11,9 @@
 
     <span class="text"> <mat-icon>perm_identity</mat-icon> {{action.participants}} Teilnehmer</span>
 
-    <button class="join-button" mat-raised-button color="primary">dito!</button>
+    <button class="join-button"
+    (click)="openComingSoonSnackBar()"
+    mat-raised-button color="primary">dito!</button>
   </mat-card-content>
 </mat-card>
 

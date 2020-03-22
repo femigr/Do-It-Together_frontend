@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Activity } from '../model/activity';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-feed-list-entry',
@@ -12,7 +13,13 @@ export class FeedListEntryComponent implements OnInit {
   action: Activity;
 
 
-  constructor() { }
+  constructor(private snackBarService: MatSnackBar) { }
+
+  openComingSoonSnackBar() {
+    this.snackBarService.open('Coming Soon :)', null, {
+      duration: 3000,
+    });
+  }
 
   ngOnInit(): void {
   }
