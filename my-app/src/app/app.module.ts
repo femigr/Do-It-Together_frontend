@@ -21,11 +21,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ActivityPreviewComponent } from './activity-preview/activity-preview.component';
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { HttpClientModule } from '@angular/common/http';
     ResponsiveSideMenuComponent,
     HomeComponent,
     FeedListComponent,
-    FeedListEntryComponent
+    FeedListEntryComponent,
+    ActivityPreviewComponent
   ],
   imports: [
+    MatGridListModule,
     FormsModule,
     MatSelectModule,
     MatNativeDateModule,

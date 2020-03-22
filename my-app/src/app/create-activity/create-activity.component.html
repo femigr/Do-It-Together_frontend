@@ -1,26 +1,34 @@
 <div>
-
-  <mat-card>
+<mat-grid-list rowheight="600px" [cols] = "isMobile ? 1 : 2">
+  <mat-grid-tile [style] = "isMobile ? 'height: 100%;' : '' ">
+  <mat-card [style] = "isMobile ? '' : 'min-width: 400px; min-height: 500px;'">
 
     <div>
       <form [formGroup]="activityForm">
+        <h2>Dein Event</h2><br>
 
-        <div class="center">
-          <mat-form-field class="form-field" appearance="fill">
-            <mat-label>Titel</mat-label>
-            <input formControlName="name" matInput>
-          </mat-form-field>
+        <div *ngIf="currentstep == 0"><!-- Card 0 -->
+          <div class="label">Wie soll deine Aktivität heißen?</div>
+          <div class="center">
+            <mat-form-field class="form-field" appearance="fill">
+              <!-- <mat-label>Titel</mat-label> -->
+              <input placeholder="Der Name deiner Aktivität" formControlName="name" matInput>
+            </mat-form-field>
+          </div>
+
+          <br>
+
+          <div class="label">Und wie willst du genannt werden?</div><!-- Card 2 -->
+          <div class="center">
+            <mat-form-field class="form-field" appearance="fill">
+              <input placeholder="Dein Name oder deine Institution" formControlName="username" matInput>
+            </mat-form-field>
+          </div>
         </div>
 
-        <div class="center">
-          <mat-form-field class="form-field">
-            <mat-label>Datum</mat-label>
-            <input formControlName="date" [matDatepicker]="picker" matInput>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
 
+
+        <!--
         <div class="center">
           <mat-form-field class="form-field" appearance="fill">
             <mat-label>Art der virtuellen Aktivität</mat-label>
@@ -31,21 +39,62 @@
             </mat-select>
           </mat-form-field>
         </div>
+        -->
 
 
-        <div class="center">
-          <mat-form-field class="form-field" appearance="fill">
-            <mat-label>Beschreibung</mat-label>
-            <textarea formControlName="description" matInput></textarea>
-          </mat-form-field>
+        <div *ngIf="currentstep == 1">
+          <div class="label">Worum geht's?</div><!-- Card 1 -->
+          <div class="center">
+            <mat-form-field class="form-field" appearance="fill">
+              <textarea placeholder="Beschreibe deine Aktivität" formControlName="description" matInput></textarea>
+            </mat-form-field>
+          </div>
+
+          <div class="label">Möchtest du noch einen Link hinzufügen?</div><!-- Card 2 -->
+          <div class="center">
+            <mat-form-field class="form-field" appearance="fill">
+              <input placeholder="Dann hier rein damit" formControlName="link" matInput>
+            </mat-form-field>
+          </div>
         </div>
 
-        <button mat-raised-button color="primary" (click)="createActivity()">Erstellen</button>
+        <div *ngIf="currentstep == 2"><!-- Card 2-->
+          <div class="label">Wann soll deine Aktivität stattfinden?</div>
+          <div class="center">
+            <mat-form-field class="form-field">
+              <input formControlName="date" [matDatepicker]="picker" matInput>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+        </div>
+
+
+        <div *ngIf="currentstep == 3"><!-- Card 3: Preview -->
+          <app-activity-preview [activityForm]="activityForm" ></app-activity-preview>
+          <br>
+
+        </div>
+
+
+        <button *ngIf="currentstep <= (amountofsteps - 2)" class="button" mat-raised-button (click)="continue()">Weiter</button>
+
+        <button *ngIf="currentstep > (amountofsteps - 2)" class="submitbutton" mat-raised-button (click)="createActivity()">Los geht's!</button>
+
+        <button *ngIf="currentstep > 0" class="backbutton" mat-button (click)="back()">Zurück</button>
 
       </form>
     </div>
 
   </mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile *ngIf="!isMobile">
+  <app-activity-preview [activityForm]="activityForm" ></app-activity-preview>
+
+</mat-grid-tile>
+</mat-grid-list>
 </div>
 
 
