@@ -1,7 +1,6 @@
+import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Activity } from './../model/activity';
-import {Component} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators, FormBuilder} from '@angular/forms';
-import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 
 @Component({
