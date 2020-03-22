@@ -3,7 +3,7 @@ export class Activity {
     name: string;
     description: string;
     date: Date;
-    type; string;
+    type: string;
 
     constructor() {
       this.name = '';
