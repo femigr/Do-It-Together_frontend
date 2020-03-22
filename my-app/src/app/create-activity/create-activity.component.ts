@@ -1,37 +1,33 @@
+import { Activity } from './../model/activity';
 import {Component} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroupDirective, NgForm, Validators, FormBuilder} from '@angular/forms';
 import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 
 @Component({
-  selector: 'create-activity-component',
+  selector: 'app-create-activity-component',
   templateUrl: 'create-activity.component.html',
   styleUrls: ['create-activity.component.scss']
 })
 export class CreateActivityComponent {
-  constructor() {
 
+  activityTypes = ['Kaffee Pause', 'Buch zusammen lesen', 'Yoga Session'];
+  activity = new Activity();
+  activityForm;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.activityForm = this.formBuilder.group({
+      name: [ this.activity.name, Validators.required ],
+      description: [ this.activity.description, null ],
+      date: [ this.activity.date, null ],
+      type: [ this.activity.type, null ]
+    });
   }
 
-  title = "";
-  description = "";
-  date = new FormControl(new Date());
+  createActivity(): void {
 
-
-
-  openLink(event: MouseEvent): void {
-    event.preventDefault();
-  }
-
-  onSubmit(): void{
-    try{//TODO: API-Call
-      console.log(this.title);
-      console.log(this.description);
-      console.log(this.date);
-    }
-    catch(err){
-      //Alert oder sowas
-    }
+    this.activity = Object.assign({}, this.activityForm.value);
+    console.log(this.activity);
   }
 
 
