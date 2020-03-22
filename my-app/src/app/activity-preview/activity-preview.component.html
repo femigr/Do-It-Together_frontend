@@ -7,7 +7,7 @@
   overflow: hidden;">
     <div class="preview">
       <div height = "140" width = "270" style="overflow: hidden; position: relative;">
-        <img src="/assets/images/example3.jpg" width="270"> <!--vll noch: style="border-bottom: 4px solid var(--event-color);"-->
+        <img src="{{activityForm.value.imageUrl}}" width="270"> <!--vll noch: style="border-bottom: 4px solid var(--event-color);"-->
       </div>
       <br *ngIf="activityForm.value.name==''">
       <div *ngIf="activityForm.value.name!=''" style="padding: 16px;">

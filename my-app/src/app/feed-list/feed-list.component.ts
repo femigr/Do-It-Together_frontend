@@ -16,16 +16,31 @@ export class FeedListComponent implements OnInit {
   constructor(private http: HttpClient) {
   }
 
-  ngOnInit(): void {
+  preview = false;
 
+  isMobile = false;
+  getIsMobile(): boolean {
+    const w = document.documentElement.clientWidth;
+    const breakpoint = 992;
+    if (w < breakpoint) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  ngOnInit(): void {
     this.http.get(this.actionsUrl).subscribe(data => {
       let items: any;
       items = data['data']['Items'];
       for (const item of items) {
         this.actions.push(item.Action);
       }
-
     });
+    this.isMobile = this.getIsMobile();
+    window.onresize = () => {
+      this.isMobile = this.getIsMobile();
+    };
   }
 
 
