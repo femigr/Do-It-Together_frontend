@@ -7,6 +7,7 @@ export class Activity {
     username: string;
     link: string;
 
+
     constructor() {
       this.name = '';
       this.description = '';

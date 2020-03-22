@@ -26,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActivityPreviewComponent } from './activity-preview/activity-preview.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { ActivityPreviewComponent } from './activity-preview/activity-preview.co
     MatToolbarModule,
     MatIconModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,

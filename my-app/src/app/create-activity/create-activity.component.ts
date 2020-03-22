@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Activity } from './../model/activity';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-activity-component',
@@ -13,9 +15,20 @@ export class CreateActivityComponent {
   activityTypes = ['Kaffee Pause', 'Buch zusammen lesen', 'Yoga Session'];
   activity = new Activity();
   activityForm;
+
   currentstep;
 
   amountofsteps = 3;
+
+
+  putActionUrl = 'https://lvve8kdo9b.execute-api.eu-central-1.amazonaws.com/prod/actions';
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json'
+    })
+  };
+
+  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
 
 
   constructor(private formBuilder: FormBuilder) {
@@ -57,6 +70,8 @@ export class CreateActivityComponent {
     console.log(this.activity);
 
     // Call API endpoint here
+    var out = JSON.stringify({"action": this.activity});
+    this.http.post(this.putActionUrl, out, this.httpOptions);
   }
 
   back(): void{
