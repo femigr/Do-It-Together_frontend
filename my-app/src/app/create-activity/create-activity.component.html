@@ -1,6 +1,6 @@
 <div>
 <mat-grid-list rowheight="600px" [cols] = "isMobile ? 1 : 2">
-  <mat-grid-tile [style] = "isMobile ? 'height: 100%;':''">
+  <mat-grid-tile [style] = "isMobile ? 'height: 100%;' : '' ">
   <mat-card [style] = "isMobile ? '' : 'min-width: 400px; min-height: 500px;'">
 
     <div>
@@ -72,27 +72,7 @@
 
 
         <div *ngIf="currentstep == 3"><!-- Card 3: Preview -->
-
-          <mat-card style = "padding: 0;
-          width: 270px;
-          border: 4px solid var(--event-color);
-          border-radius: 16px;
-          opacity: 1;
-          position: relative;
-          overflow: hidden;">
-            <div class="preview">
-              <div height = "140" width = "270" style="overflow: hidden; position: relative;">
-                <img src="/assets/images/example3.jpg" width="270"> <!--vll noch: style="border-bottom: 4px solid var(--event-color);"-->
-              </div>
-              <br *ngIf="activityForm.value.name==''">
-              <div *ngIf="activityForm.value.name!=''" style="padding: 16px;">
-                <h2>{{activityForm.value.name}}</h2><br>
-                <h3>{{activityForm.value.username}}</h3><br>
-                <p>{{activityForm.value.description}}</p><br>
-                <p align="right"><a href="{{activityForm.value.link}}">{{activityForm.value.link}}</a></p>
-              </div>
-            </div>
-          </mat-card>
+          <app-activity-preview [activityForm]="activityForm" ></app-activity-preview>
           <br>
 
         </div>
@@ -111,26 +91,8 @@
 </mat-grid-tile>
 
 <mat-grid-tile *ngIf="!isMobile">
-  <mat-card style = "padding: 0;
-  width: 270px;
-  border: 4px solid var(--event-color);
-  border-radius: 16px;
-  opacity: 1;
-  position: relative;
-  overflow: hidden;">
-    <div class="preview">
-      <div height = "140" width = "270" style="overflow: hidden; position: relative;">
-        <img src="/assets/images/example3.jpg" width="270"> <!--vll noch: style="border-bottom: 4px solid var(--event-color);"-->
-      </div>
-      <br *ngIf="activityForm.value.name==''">
-      <div *ngIf="activityForm.value.name!=''" style="padding: 16px;">
-        <h2>{{activityForm.value.name}}</h2><br>
-        <h3>{{activityForm.value.username}}</h3><br>
-        <p>{{activityForm.value.description}}</p><br>
-        <p align="right"><a href="{{activityForm.value.link}}">{{activityForm.value.link}}</a></p>
-      </div>
-    </div>
-  </mat-card>
+  <app-activity-preview [activityForm]="activityForm" ></app-activity-preview>
+
 </mat-grid-tile>
 </mat-grid-list>
 </div>

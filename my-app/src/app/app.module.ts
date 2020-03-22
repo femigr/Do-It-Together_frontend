@@ -25,6 +25,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ActivityPreviewComponent } from './activity-preview/activity-preview.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     ResponsiveSideMenuComponent,
     HomeComponent,
     FeedListComponent,
-    FeedListEntryComponent
+    FeedListEntryComponent,
+    ActivityPreviewComponent
   ],
   imports: [
     MatGridListModule,

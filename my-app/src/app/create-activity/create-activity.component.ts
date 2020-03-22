@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Activity } from './../model/activity';
 
-
 @Component({
   selector: 'app-create-activity-component',
   templateUrl: 'create-activity.component.html',
