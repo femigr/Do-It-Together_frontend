@@ -1,12 +1,19 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>{{action.name}}</mat-card-title>
-    <mat-card-subtitle>{{action.username}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="{{action.imageUrl}}">
-  <mat-card-content>
-    <p>
-        {{action.description}}
-    </p>
+<mat-card class="card" [style] = "isMobile ? 'width: 20em' : 'width: 27.5em'">
+
+    <div class="preview-image">
+      <img mat-card-image src="{{action.imageUrl}}">
+    </div>
+
+  <mat-card-content style = "padding-top: 8px; padding-left: 16px;">
+
+    <p class="title">{{action.name}}</p>
+    <p class="text">{{action.username}}</p>
+
+    <span class="text"> <mat-icon>perm_identity</mat-icon> {{action.participants}} Teilnehmer</span>
+
+    <button class="join-button"
+    (click)="openComingSoonSnackBar()"
+    mat-raised-button color="primary">dito!</button>
   </mat-card-content>
 </mat-card>
+

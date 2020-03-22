@@ -7,6 +7,7 @@ export class Activity {
     imageUrl: string;
     username: string;
     link: string;
+    participants: number;
 
     constructor() {
       this.name = '';
@@ -16,5 +17,7 @@ export class Activity {
       this.imageUrl = '';
       this.username = '';
       this.link = '';
+      this.imageUrl = '/assets/images/example3.jpg';
+      this.participants = 1;
     }
   }

@@ -38,8 +38,11 @@ export class CreateActivityComponent {
       username: [ this.activity.username, Validators.required ],
       date: [ this.activity.date, null ],
       link: [ this.activity.link, null ],
-      type: [ this.activity.type, null ]
+      imageUrl: [ this.activity.imageUrl, null ],
+      type: [ this.activity.type, null ],
+      participants: 1,
     });
+
   }
 
   isMobile = false;
