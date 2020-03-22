@@ -26,6 +26,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActivityPreviewComponent } from './activity-preview/activity-preview.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FeedListComponent,
     FeedListEntryComponent,
-    ActivityPreviewComponent
+    ActivityPreviewComponent,
+    LandingpageComponent
   ],
   imports: [
     MatGridListModule,
