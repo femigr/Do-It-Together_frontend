@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FeedSummary } from 'src/app/module/feed-summary';
+import { Activity } from '../model/activity';
 
 @Component({
   selector: 'app-feed-list-entry',
@@ -9,7 +9,7 @@ import { FeedSummary } from 'src/app/module/feed-summary';
 export class FeedListEntryComponent implements OnInit {
 
   @Input()
-  feedSummary: FeedSummary;
+  action: Activity;
 
 
   constructor() { }

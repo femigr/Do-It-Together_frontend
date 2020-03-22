@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { FeedSummary } from 'src/app/module/feed-summary';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-feed-list',
@@ -10,27 +10,22 @@ import { FeedSummary } from 'src/app/module/feed-summary';
 })
 export class FeedListComponent implements OnInit {
 
-  // Mocked data
-  feed: FeedSummary = {
-    id: '1',
-    title: 'Yoga Class',
-    description: 'Section 1',
-    creator: 'John doe',
-    avatarImageUrl: 'https://material.angular.io/assets/img/examples/shiba1.jpg',
-    imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg',
-  };
+  actionsUrl = 'https://lvve8kdo9b.execute-api.eu-central-1.amazonaws.com/prod/actions';
+  @Input() actions = [];
 
-  @Input() feedSummaryList = [];
-
-
-  constructor() {
-
-    for (let i = 0; i < 20; ++i) {
-      this.feedSummaryList['push'](this.feed);
-    }
+  constructor(private http: HttpClient) {
   }
 
   ngOnInit(): void {
+
+    this.http.get(this.actionsUrl).subscribe((data) => {
+      var items: any;
+      items = data['data']['Items'];
+      for (const item of items) {
+        this.actions.push(item.Action)
+      }
+
+    });
   }
 
 
