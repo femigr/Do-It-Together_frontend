@@ -11,11 +11,14 @@ import {MatBottomSheetRef} from '@angular/material/bottom-sheet';
 })
 export class CreateActivityComponent {
 
+  // TODO: Fetch from database or save in enum
   activityTypes = ['Kaffee Pause', 'Buch zusammen lesen', 'Yoga Session'];
   activity = new Activity();
   activityForm;
 
   constructor(private formBuilder: FormBuilder) {
+
+    // Init form and link to model
     this.activityForm = this.formBuilder.group({
       name: [ this.activity.name, Validators.required ],
       description: [ this.activity.description, null ],
@@ -28,6 +31,8 @@ export class CreateActivityComponent {
 
     this.activity = Object.assign({}, this.activityForm.value);
     console.log(this.activity);
+
+    // Call API endpoint here
   }
 
 
