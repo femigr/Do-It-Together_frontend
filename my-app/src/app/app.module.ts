@@ -28,6 +28,8 @@ import { ActivityPreviewComponent } from './activity-preview/activity-preview.co
 import { HttpClientModule } from '@angular/common/http';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -63,7 +65,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     ScrollingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [RouterModule],
   providers: [MatDatepickerModule],
